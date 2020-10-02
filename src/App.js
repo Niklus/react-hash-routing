@@ -5,21 +5,21 @@ import Contact from "./components/Contact";
 import Header from "./components/Header";
 
 function App() {
-  const [route, setRoute] = useState(window.location.hash);
+  const [hash, setHash] = useState(window.location.hash);
 
-  const handleRouteChange = () => {
-    setRoute(window.location.hash);
+  const handleHashChange = () => {
+    setHash(window.location.hash);
   };
 
-  window.addEventListener("hashchange", handleRouteChange);
+  window.addEventListener("hashchange", handleHashChange);
 
   return (
     <>
       <Header />
-      <div>{route === "" && <Home />}</div>
-      <div>{route === "#home" && <Home />}</div>
-      <div>{route === "#about" && <About />}</div>
-      <div>{route === "#contact" && <Contact />}</div>
+      {hash === "" && <Home />}
+      {hash === "#home" && <Home />}
+      {hash === "#about" && <About />}
+      {hash === "#contact" && <Contact />}
     </>
   );
 }
